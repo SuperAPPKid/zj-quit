@@ -59,9 +59,8 @@ impl ZellijPlugin for State {
         );
 
         let help_text = format!(
-            "Help: <{}> - Confirm, <{}> - Cancel",
-            self.confirm_key,
-            self.cancel_key,
+            "<{}> - Confirm, <{}> - Cancel",
+            self.confirm_key, self.cancel_key,
         );
         let help_text_y_location = rows - 1;
         let help_text_x_location = cols.saturating_sub(help_text.chars().count()) / 2;
@@ -71,10 +70,10 @@ impl ZellijPlugin for State {
 
         print_text_with_coordinates(
             Text::new(help_text)
-                .color_range(3, 6..8 + confirm_key_length)
+                .color_range(3, 0..2 + confirm_key_length)
                 .color_range(
                     3,
-                    20 + confirm_key_length..22 + confirm_key_length + abort_key_length,
+                    14 + confirm_key_length..16 + confirm_key_length + abort_key_length,
                 ),
             help_text_x_location,
             help_text_y_location,
